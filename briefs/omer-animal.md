@@ -42,10 +42,11 @@ sees there.
 
 ## Payments (test card only)
 
-Buyers: add money to the wallet with this Stripe test card, then pay for one order
+Buyers: add money to the wallet with this test card, then pay for one order
 (cart checkout) and one vet or transport booking if the app asks for payment:
 
-- Card number 4242 4242 4242 4242 (Visa), expiry 12/34, CVC 123, any name and ZIP.
+- Card number 4111 1111 1111 1111 (Visa), CVC 123, any future expiry (for example 12/34), any name.
+- If a 3-D Secure / OTP page appears, approve it (choose the success option or enter the test code shown).
 - Top up a small amount (for example 100 SAR, or the smallest the app allows) before paying.
 - Report: did the top-up reach the wallet balance, did the payment succeed, did the order or
   booking appear with the right status, and was the wallet charged the right amount.
