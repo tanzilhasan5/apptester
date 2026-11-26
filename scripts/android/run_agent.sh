@@ -6,6 +6,8 @@
 set -uo pipefail
 adb wait-for-device
 mkdir -p "results/$PERSONA"
+# The test accounts password lives in the TEST_PASSWORD secret, never in the public brief
+[ -n "${TEST_PASSWORD:-}" ] && [ -f "$BRIEF" ] && perl -pi -e 's/\{\{TEST_PASSWORD\}\}/$ENV{TEST_PASSWORD}/g' "$BRIEF"
 # 1. Blocked hosts must not resolve to a real IP from inside the emulator
 for h in $BLOCK_HOSTS; do
   ip=$(adb shell ping -c 1 -W 2 "$h" 2>&1 | head -1 | grep -oE '\(([0-9]{1,3}\.){3}[0-9]{1,3}\)' | tr -d '()')

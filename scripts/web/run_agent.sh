@@ -5,6 +5,8 @@ set -uo pipefail
 : "${WEB_URL:?web_url missing}" "${PERSONA:?}"
 export WEB_PORT="${WEB_PORT:-9333}"
 mkdir -p "results/$PERSONA"
+# The test accounts password lives in the TEST_PASSWORD secret, never in the public brief
+[ -n "${TEST_PASSWORD:-}" ] && [ -f "$BRIEF" ] && perl -pi -e 's/\{\{TEST_PASSWORD\}\}/$ENV{TEST_PASSWORD}/g' "$BRIEF"
 LOG="${RUNNER_TEMP:-/tmp}/browser-$PERSONA.log"
 python3 scripts/web/browser.py serve > "$LOG" 2>&1 &
 BROWSER=$!

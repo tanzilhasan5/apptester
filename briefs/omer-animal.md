@@ -2,18 +2,57 @@
 
 Read AGENT_BRIEF.md first: its tools, rules and final report all apply.
 Only the account part changes: do NOT sign up (sign-up needs an OTP you cannot receive).
-Log in with one of these existing test accounts instead (password for all: 12345678):
+Log in with email + password (no OTP at login). Password for every account: {{TEST_PASSWORD}}
 
-- buyer@test.com / buyer2@test.com: buyer
-- seller@test.com: approved seller; seller_pending@test.com: seller awaiting approval
-- vet@test.com: approved veterinarian; vet_pending@test.com: vet awaiting approval
-- transport@test.com: approved transport provider; transport_pending@test.com: pending
-- suspended@test.com: suspended buyer (check the app explains this clearly)
+## Your account (by your persona name)
 
-Pick the account whose role fits your persona best (a buyer persona takes a buyer account,
-and so on). Then, as your persona, do the main job of that role end to end: a buyer browses,
-searches, opens a listing and contacts/orders; a seller creates and edits a listing; a vet or
-transport provider completes their profile and handles a request. Also try one pending
-account and log out / log back in once.
+| Persona | Account | Role |
+|---|---|---|
+| Anna, Clara | buyer@test.com | buyer |
+| Malik | buyer2@test.com | buyer |
+| Layla, Jonas | seller@test.com | approved seller |
+| Kenji | seller_pending@test.com | seller awaiting approval |
+| Grace, Yuki | vet@test.com | approved veterinarian (doctor) |
+| Ravi | vet_pending@test.com | veterinarian awaiting approval |
+| Olga, Amira | transport@test.com | approved transport provider |
+| Felipe | transport_pending@test.com | transport provider awaiting approval |
+| Noah | suspended@test.com | suspended buyer |
 
-- Never change an account's password or e-mail, never delete an account, never make a real payment.
+If your persona is not in the table, use buyer@test.com.
+Ignore the account part of your persona's goal. Keep its style (speed, care, language, accessibility).
+
+## Your goal, by role
+
+- **Buyer**: browse Home and Buy, search/filter, open a listing, add to cart, change quantity,
+  go to checkout. Message a seller. Book a vet (doctor)
+  appointment and request an animal transport. Open the Auction tab. Check profile, address,
+  wallet, orders and notifications. Log out and log back in once.
+- **Seller (approved)**: add a new listing with every field, edit it, look at incoming orders
+  and messages, check the seller profile and earnings/wallet.
+- **Veterinarian (approved)**: complete or check the vet profile (services, prices, schedule),
+  look at appointment requests and accept or reply to one if any exist, check messages and earnings.
+- **Transport provider (approved)**: complete or check the transport profile (vehicle, area,
+  prices), look at transport requests and accept or reply to one if any exist, check earnings.
+- **Any pending account**: check that the app clearly says the account awaits approval and that
+  actions reserved for approved accounts are blocked. Report anything a pending user can still do.
+- **Suspended account**: check the app clearly explains the suspension at login and blocks use.
+
+For every role also try the Transport and Auction tabs and Settings, and report what each role
+sees there.
+
+## Payments (test card only)
+
+Buyers: add money to the wallet with this Stripe test card, then pay for one order
+(cart checkout) and one vet or transport booking if the app asks for payment:
+
+- Card number 4242 4242 4242 4242 (Visa), expiry 12/34, CVC 123, any name and ZIP.
+- Top up a small amount (for example 100 SAR, or the smallest the app allows) before paying.
+- Report: did the top-up reach the wallet balance, did the payment succeed, did the order or
+  booking appear with the right status, and was the wallet charged the right amount.
+- If the card is refused, report the exact message (the backend may be in live mode) and stop paying.
+
+Never type any other card number.
+
+## Never
+
+Change an account's password, e-mail or phone, or delete an account or a listing you did not create.

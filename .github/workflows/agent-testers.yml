@@ -317,6 +317,7 @@ jobs:
           GEO: ${{ matrix.geo }}
           APP_ID: ${{ inputs.app_id }}
           BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'AGENT_BRIEF.md' && 'briefs/reproduce.md' || inputs.brief }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}   # test accounts password, put into the brief at run time
           MODEL: ${{ inputs.model }}
           LLM_BASE_URL: ${{ inputs.llm_base_url }}
           LLM_API_KEY: ${{ inputs.replay_traces == '' && secrets.LLM_API_KEY || '' }}
@@ -437,6 +438,7 @@ jobs:
           GEO: ${{ matrix.geo }}
           APP_ID: ${{ inputs.app_id }}
           BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'AGENT_BRIEF.md' && 'briefs/reproduce.md' || inputs.brief }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}   # test accounts password, put into the brief at run time
           MODEL: ${{ inputs.model }}
           LLM_BASE_URL: ${{ inputs.llm_base_url }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
@@ -502,6 +504,7 @@ jobs:
           GEO: ${{ matrix.geo }}
           WEB_URL: ${{ inputs.web_url }}
           BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'AGENT_BRIEF.md' && 'briefs/reproduce.md' || inputs.brief }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}   # test accounts password, put into the brief at run time
           MODEL: ${{ inputs.model }}
           LLM_BASE_URL: ${{ inputs.llm_base_url }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}

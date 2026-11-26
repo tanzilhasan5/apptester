@@ -4,6 +4,8 @@
 set -uo pipefail
 : "${UDID:?}"
 mkdir -p "results/$PERSONA"
+# The test accounts password lives in the TEST_PASSWORD secret, never in the public brief
+[ -n "${TEST_PASSWORD:-}" ] && [ -f "$BRIEF" ] && perl -pi -e 's/\{\{TEST_PASSWORD\}\}/$ENV{TEST_PASSWORD}/g' "$BRIEF"
 for h in $BLOCK_HOSTS; do
   if curl -s -m 6 -o /dev/null "https://$h/"; then echo "$h reachable: aborting"; exit 1; fi
 done
